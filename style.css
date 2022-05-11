@@ -1,0 +1,31 @@
+img{
+    width: 3vw;
+    height: 35vw;
+}
+
+
+.card-text{
+    text-align: center;
+    font-size: 2rem;
+    color:brown;
+}
+
+/* #name{
+    line-height: 200px;
+    height: 200px;
+    border: 3px solid green;
+    text-align: center;
+} */
+
+.des{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+
+}
+
+button{
+
+    border-style: solid;
+}
