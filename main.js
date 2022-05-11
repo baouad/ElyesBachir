@@ -6,6 +6,7 @@ let description = ""
 async function getBeers() {
   try {
     const response = await axios.get('https://api.punkapi.com/v2/beers')
+    console.log(response);
     for (const element of response.data) {
       nameB = element.name
       imageB = element.image_url
