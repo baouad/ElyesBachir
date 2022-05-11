@@ -17,20 +17,22 @@ async function getBeers() {
     // })
     
     for (const element of response.data) {
-      idB = element.id;
       nameB = element.name
       imageB = element.image_url
       taglineB = element.tagline
       description = element.description
       card.innerHTML += `
      
-
-      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-      <p class="card-text" >`+taglineB+`</p>
+      <div class="d-grid gap-12">
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target= #`+taglineB+`>
+      <p class="card-text" >`+taglineB+`
+      <img src="`+imageB+`" class="card-img-top" alt="..."></p>
       </button>
+      <\div>
+    
       
       <!-- Modal -->
-      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal fade" id=`+taglineB+` tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -38,7 +40,7 @@ async function getBeers() {
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-            <div class="card" style="width: 18rem; g-col-3 p-2 m-2">
+            <div class="card" style="width: 18rem;">
             <img src="`+imageB+`" class="card-img-top" alt="...">
             <div class="`+nameB+`" id="name">
               <p class="card-text" >`+taglineB+`</p>
@@ -57,6 +59,7 @@ async function getBeers() {
    
     `
     }
+
 
   } catch (error) {
   }
