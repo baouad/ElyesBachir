@@ -1,33 +1,40 @@
-console.log('Bonjour')
-// //let cors = require("cors");
-// //app.use(cors());
+let card = document.getElementById("card")
+let nameB = ""
+let imageB = ""
+let taglineB = ""
+let description = ""
+async function getBeers() {
+  try {
+    const response = await axios.get('https://api.punkapi.com/v2/beers')
+    console.log(response);
 
-async function getBeers(){
-  try{
-      const response = await axios.get("https://api.punkapi.com/v2/beers")
-      console.log("reponse", response);
-      
+    // var myModal = document.getElementById('myModal')
+    // var myInput = document.getElementById('myInput')
+
+    // myModal.addEventListener('shown.bs.modal', function () {
+    //   myInput.focus()
+    // })
     
-        for(let name of response.data){
-          console.log(name)
-        
-        
-        // create a new div element
-        var afficher = document.createElement("afficher");
+    for (const element of response.data) {   
+      nameB = element.name
+      imageB = element.image_url
+      taglineB = element.tagline
+      description = element.description
 
-        // and give it some content
-        var newContent = document.createTextNode(name.name);
+      card.innerHTML += `
+     
+      <div class="container d-grid gap-10 col-12">
+      <button type="button" class="btn btn-lite" data-bs-toggle="modal" data-bs-target= #myModal>
+      <p class="card-text" >`+nameB+`
+      </button>
+      <img src="`+imageB+`" class="card-img-top" alt="..." style="width: 18rem;"></p>
+      <\div>
+      ` 
+    }
 
-        // add the text node to the newly created div
-        afficher.innerHTML = newContent;
-
-        // add the newly created element and its content into the DOM
-        document.body.insertBefore(afficher, newContent);
-}
-
-  }catch (error){
-      console.error(error);
+  } catch (error) {
   }
 }
 
 await getBeers()
+
