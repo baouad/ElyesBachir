@@ -28,4 +28,9 @@ img{
 button{
 
     border-style: solid;
+
+}
+
+.container{
+    text-align: center;
 }
